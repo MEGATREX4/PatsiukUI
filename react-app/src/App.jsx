@@ -37,14 +37,18 @@ export default function App() {
       id: Date.now(),
       title: form.title.value || 'Невідомо',
       image: form.image.value || 'https://i.imgur.com/klcspz6.png',
-      translated: Number(form.translated.value) || 0,
-      approved: Number(form.approved.value) || 0
+      translated: Math.min(100, Math.max(0, Number(form.translated.value) || 0)),
+      approved: Math.min(100, Math.max(0, Number(form.approved.value) || 0))
     };
     setItems([...items, newItem]);
     form.reset();
   };
 
   const updateItem = (id, field, value) => {
+    // Обмежуємо значення approved та translated до максимуму 100
+    if (field === 'approved' || field === 'translated') {
+      value = Math.min(100, Math.max(0, value));
+    }
     setItems(items.map(item => item.id === id ? { ...item, [field]: value } : item));
   };
 
