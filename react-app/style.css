@@ -1,0 +1,626 @@
+/* Chrome, Edge and Safari */
+*::-webkit-scrollbar {
+    height: 7px;
+    width: 7px;
+  }
+  *::-webkit-scrollbar-track {
+    border-radius: 5px;
+    background-color: #DFE9EB;
+  }
+  
+  *::-webkit-scrollbar-track:hover {
+    background-color: #B8C0C2;
+  }
+  
+  *::-webkit-scrollbar-track:active {
+    background-color: #B8C0C2;
+  }
+  
+  *::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background-color: #7E292A;
+  }
+  
+  *::-webkit-scrollbar-thumb:hover {
+    background-color: #9A3233;
+  }
+  
+  *::-webkit-scrollbar-thumb:active {
+    background-color: #B0393B;
+  }
+
+
+html{
+    background-color: #16181c;
+}
+
+.CContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+}
+
+.UI, .calc{
+    width: 650px;
+    min-width: 650px;
+    min-height: 650px;
+    margin: 10px;
+}
+
+
+
+.ui{
+    position: relative;
+}
+
+.UI, #uiContainer{
+    max-width: 792px;
+    max-height: 792px;
+    width: 792px;
+    height: 792px;
+    max-width: 792px;
+}
+
+.background{
+    width: 512px;
+    min-width: 512px;
+    min-height: 512px;
+    position: absolute;
+    z-index: -2;
+}
+
+.calc {
+    display: flex;
+    position: relative;
+    color: #b0bac5;
+    font-family: Inter, -apple-system, BlinkMacSystemFont, Segoe UI, Oxygen, Ubuntu, Roboto, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+}
+
+.images {
+    color: #ecf9fb;
+    font-size: 15px;
+    font-family: Inter, -apple-system, BlinkMacSystemFont, Segoe UI, Oxygen, Ubuntu, Roboto, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    flex-wrap: wrap;
+    gap: 15px;
+    align-content: center;
+    max-width: calc(100% - 30px);
+    flex-direction: row;
+}
+
+.infocont {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-left: 5px;;
+}
+
+
+.UI {
+    position: relative;
+    background: url(https://i.imgur.com/ukZ8NJu.png);
+    background-repeat: no-repeat !important;
+    background-position: center center !important;
+    background-size: cover !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 1200px;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+}
+
+.contcont {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    gap: 5px;
+}
+
+.alarm{
+    color: #ffbb00;
+}
+
+.container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+.itemimage{
+    width: 100px;
+    min-width: 100px;
+    height: 100px;
+    background-size: cover !important;
+    border-radius: 0.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.125);
+    background-repeat: no-repeat!important;
+}
+
+.itemadd{
+    width: 400px;
+    height: 400px;
+    background-color: #26292f;
+    border-radius: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+input{
+    margin-bottom: 10px;
+}
+
+
+.itemcontainer {
+    width: 270px;
+    display: flex;
+    padding: 10px;
+    flex-direction: row;
+    min-height: 100px;
+    padding-bottom: 12px;
+    background-color: #26292fcc;
+    border: 1px solid rgba(255, 255, 255, 0.125);
+    align-items: center;
+    align-content: center;
+    border-radius: 9px;
+    box-shadow: 4px 6px 15.5px 3px #00000017;
+}
+
+.iteminfocont {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 7px;
+}
+.itemtitlecont{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+.title{
+    margin-left: 0.5rem;
+    font-weight: 600;
+}
+
+input[type="range"] {
+    appearance: none;
+    width: 100%;
+    background: #ffffff;
+}
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 15px;
+    height: 15px;
+    background: #0074D9;
+    border-radius: 100%;
+    cursor: pointer;
+}
+
+input{
+    width: 157px!important;
+    padding: 7px;
+    outline: 2px solid #525252;
+    border-radius: 5px;
+    border: none;
+    appearance: none;
+}
+
+input[type=color]{
+    border-radius: 0.2rem;
+    width: 60px;
+    border: none;
+    outline: none;
+    appearance: none;
+}
+
+
+
+input[type=color]::-webkit-color-swatch-wrapper {
+    padding: 0; 
+}
+input[type=color]::-webkit-color-swatch {
+    border: none;
+    border-radius: 0.2rem;
+}
+
+::-webkit-color-swatch {
+    border: none;
+}
+
+input:focus{
+    outline: 2px solid #7e292a;
+}
+
+.itemtitle{
+    height: 100%;
+}
+
+.statuscont{
+    background-color: #16181c;
+    position: relative;
+    border-radius: 10px;
+}
+
+.statuscont, .approved, .translated{
+    height: 20px;
+    border-radius: 10px;
+    margin: 25px 20px 25px 20px;
+}
+
+.approved, .translated{
+    margin: 0;
+    position: absolute;
+    height: 100%;
+}
+
+.approved{
+    background-color: #69ba6e;
+}
+   
+.translated{
+    background-color: #5985c0;
+}
+
+.emoji {
+    height: 0.5em;
+    width: 0.5em;
+    padding: 1px;
+    max-height: 0.5em;
+    max-width: 0.5em;
+    background-repeat: no-repeat;
+}
+
+.percentage {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+}
+
+.percentagecont{
+
+    width: 100%;
+    height: 100%;
+}
+
+.percentage .emoji{
+    margin-right: 10px;
+    margin-left: 5px;
+}
+
+
+.removebtn{
+    position: absolute;
+    left: 1px;
+    top: 1px;
+    max-width: 20px;
+    max-height: 20px;
+    min-width: 20px;
+    min-height: 20px;
+}
+
+.capture{
+    position: relative;
+}
+
+.copied-text-display {
+    position: absolute;
+    display: none;
+    width: 100%;
+    height: 50px;
+    background-color: #26292fcc;
+    border: 1px solid rgba(255, 255, 255, 0.125);
+    margin-top: 90px;
+    border-radius: 5px;
+    text-align: center;
+    color: #b0bac5;
+    font-family: Inter, -apple-system, BlinkMacSystemFont, Segoe UI, Oxygen, Ubuntu, Roboto, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    font-size: 17px;
+    font-weight: 500;
+    justify-content: center;
+    align-items: center;
+}
+
+
+@keyframes text-visible {
+    0% { transform: scale(70%);opacity: 0; }
+    20% { transform: scale(100%);opacity: 0.25; }
+    50% { transform: scale(100%);opacity: 1; }
+    70% { transform: scale(100%); }
+    100% { transform: scale(100%);  }
+  }
+  
+  /* Apply animation to the copied-text-display-visible class */
+  .copied-text-display-visible {
+    animation: text-visible 1s ease-in-out;
+  }
+
+.copied-text-display-visible{
+    display: flex;
+    width: 100%;
+    height: 50px;
+    background-color: #26292fcc;
+    border: 1px solid rgba(255, 255, 255, 0.125);
+    margin-top: 40px;
+    border-radius: 5px;
+    text-align: center;
+    color: #b0bac5;
+    font-family: Inter, -apple-system, BlinkMacSystemFont, Segoe UI, Oxygen, Ubuntu, Roboto, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    font-size: 17px;
+    font-weight: 500;
+    justify-content: center;
+    align-items: center;
+}
+
+.capturecont {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+    text-align: center;
+
+}
+
+.removeobj {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 5px;
+    gap: 10px;
+    justify-content: center;
+    align-items: stretch;
+    align-content: flex-start;
+    color: white;
+    overflow: auto;
+    max-height: 375px;
+    background-color: #26292f;
+    border-radius: 1rem;
+    min-width: 400px;
+}
+
+button:hover{
+    outline: 2px solid #c294955d; 
+    outline-offset: 0px;
+}
+
+.removebtn {
+    padding: 5px;
+    background-color: #7e292a;
+    border-radius: 0.2rem;
+    display: flex;
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    cursor: default;
+}
+
+.removetextcont {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    margin-bottom: 10px;
+    gap: 5px;
+}
+
+
+
+.removecont {
+    display: flex;
+    max-width: 210px;
+    min-width: 210px;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    background-color: #1b222e;
+    padding: 10px;
+    border-radius: 0.5rem;
+    gap: 5px;
+}
+
+.removebtn:hover{
+    background-color: #8b3a3b;
+    cursor: pointer;
+}
+
+a{
+    text-decoration: underline wavy #f7bd3538;
+    color: #f7bd3538;
+    font-size: 15px;
+    font-family: Inter, -apple-system, BlinkMacSystemFont, Segoe UI, Oxygen, Ubuntu, Roboto, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+a:visited{
+    color: #f7bd3538;
+    font-size: 15px;
+    font-family: Inter, -apple-system, BlinkMacSystemFont, Segoe UI, Oxygen, Ubuntu, Roboto, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+
+.em-delete{
+    background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"%3E%3Cpath fill="white" d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z "%3E%3C/path%3E%3C/svg%3E');
+}
+
+.nameUI {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+button {
+    min-width: 200px;
+    height: 50px;
+    border-radius: 0.6rem;
+    border: none;
+    background-color: #7e292a;
+    color: white;
+    font-size: 13px;
+    font-family: Inter, -apple-system, BlinkMacSystemFont, Segoe UI, Oxygen, Ubuntu, Roboto, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    margin-top: 20px;    
+}
+
+button:hover{
+    background-color: rgb(141, 68, 69);
+    cursor: pointer;
+}
+
+.ShowSiteSettings {
+    background-color: #7e292a;
+    min-width: 50px;
+    min-height: 50px;
+    width: 50px;
+    height: 50px;
+    border-radius: 0.3rem;
+    margin: 10px;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+    position: absolute;
+    left: 125px;
+    
+}
+
+.settingsicon{
+    background-repeat: no-repeat;
+    background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"%3E%3Cpath d="M495.9 166.6c3.2 8.7 .5 18.4-6.4 24.6l-43.3 39.4c1.1 8.3 1.7 16.8 1.7 25.4s-.6 17.1-1.7 25.4l43.3 39.4c6.9 6.2 9.6 15.9 6.4 24.6c-4.4 11.9-9.7 23.3-15.8 34.3l-4.7 8.1c-6.6 11-14 21.4-22.1 31.2c-5.9 7.2-15.7 9.6-24.5 6.8l-55.7-17.7c-13.4 10.3-28.2 18.9-44 25.4l-12.5 57.1c-2 9.1-9 16.3-18.2 17.8c-13.8 2.3-28 3.5-42.5 3.5s-28.7-1.2-42.5-3.5c-9.2-1.5-16.2-8.7-18.2-17.8l-12.5-57.1c-15.8-6.5-30.6-15.1-44-25.4L83.1 425.9c-8.8 2.8-18.6 .3-24.5-6.8c-8.1-9.8-15.5-20.2-22.1-31.2l-4.7-8.1c-6.1-11-11.4-22.4-15.8-34.3c-3.2-8.7-.5-18.4 6.4-24.6l43.3-39.4C64.6 273.1 64 264.6 64 256s.6-17.1 1.7-25.4L22.4 191.2c-6.9-6.2-9.6-15.9-6.4-24.6c4.4-11.9 9.7-23.3 15.8-34.3l4.7-8.1c6.6-11 14-21.4 22.1-31.2c5.9-7.2 15.7-9.6 24.5-6.8l55.7 17.7c13.4-10.3 28.2-18.9 44-25.4l12.5-57.1c2-9.1 9-16.3 18.2-17.8C227.3 1.2 241.5 0 256 0s28.7 1.2 42.5 3.5c9.2 1.5 16.2 8.7 18.2 17.8l12.5 57.1c15.8 6.5 30.6 15.1 44 25.4l55.7-17.7c8.8-2.8 18.6-.3 24.5 6.8c8.1 9.8 15.5 20.2 22.1 31.2l4.7 8.1c6.1 11 11.4 22.4 15.8 34.3zM256 336a80 80 0 1 0 0-160 80 80 0 1 0 0 160z" fill="%23ffffff"%3E%3C/path%3E%3C/svg%3E');
+    background-size: contain;
+    min-width: 42px;
+    min-height: 42px;
+
+}
+
+.SiteSettingsForm{
+    min-width: 1000px;
+}
+
+.infotext{
+    display: flex;
+}
+
+.infotext{
+    gap: 10px;
+}
+
+.SiteSettings{
+    display: none;
+    background-color: #262b36;
+    position: absolute;
+    left: 135px;
+    top: 5px;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    border-radius: 0.5rem;
+    z-index: 50;
+}
+
+
+
+.SiteSettings.burger-menu-visible {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+    animation: burger-menu-appear 0.5s ease-in-out;
+}
+
+@keyframes burger-menu-appear {
+    0% { opacity: 0.5; }
+    30% { opacity: 1; }
+    
+}
+
+.RemoveBackground{
+    width: 17px;
+    height: 100%;
+    background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"%3E%3Cpath fill="white" d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z "%3E%3C/path%3E%3C/svg%3E');
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: #7E292A;
+    padding: 10px;
+    background-size:contain;
+}
+
+.RemoveBackgroundcont {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.removebtnintext{
+    position:relative;
+    padding: 5px;
+    background-color: #7e292a;
+    border-radius: 0.2rem;
+    display: flex;
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    cursor: default;
+}
+
+#backgroundImage{
+    height: 23px;
+}
+
+.badges{
+    opacity: 0.5;
+}
+
+#perctext{
+    margin-top: 10px;
+    background-color: #26292f;
+    width: 400px;
+    min-height: 50px;
+    border-radius: 15px;
+    color: #b0bac5;
+    font-family: Inter, -apple-system, BlinkMacSystemFont, Segoe UI, Oxygen, Ubuntu, Roboto, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    font-size: 17px;
+}
