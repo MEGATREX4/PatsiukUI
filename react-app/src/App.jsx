@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import html2canvas from 'html2canvas';
 import './index.css';
 import '../header.css';
 import '../footer.css';
@@ -81,6 +82,17 @@ export default function App() {
     });
   };
 
+  const captureScreenshot = () => {
+    const node = document.getElementById('uiContainer');
+    if (!node) return;
+    html2canvas(node).then(canvas => {
+      const link = document.createElement('a');
+      link.href = canvas.toDataURL('image/png');
+      link.download = 'screenshot.png';
+      link.click();
+    });
+  };
+
   return (
     <div style={{ minHeight: '100vh', backgroundColor: settings.backgroundColor, backgroundImage: `url(${settings.backgroundImage})`, backgroundSize: 'cover' }}>
       <div className="header">
@@ -103,7 +115,29 @@ export default function App() {
               <input name="approved" type="number" min="0" max="100" defaultValue="0" className="p-1 rounded text-black" />
               <button type="submit" className="bg-[#7e292a] rounded p-2 mt-2">Додати</button>
             </form>
-            <div className="removeobj"></div>
+            <div className="removeobj space-y-2">
+              {items.map(item => (
+                <div key={item.id} className="removecont text-white">
+                  <div className="removetextcont">
+                    <div className="contcont">
+                      <div className="removebtn" title="remove" onClick={() => removeItem(item.id)}>
+                        <i className="emoji em-delete"></i>
+                      </div>
+                      <div className="nameUI">
+                        <div className="itemimage" style={{ background: `url('${item.image}')` }}></div>
+                        <div>{item.id}</div>
+                      </div>
+                    </div>
+                  </div>
+                  <label className="text-sm">Назва:</label>
+                  <input type="text" className="title-edit-input p-1 rounded text-black" value={item.title} onChange={e => updateItem(item.id, 'title', e.target.value)} />
+                  <label className="text-sm">✏️ Перекладено:</label>
+                  <input type="number" min="0" max="100" className="translated-input form__label p-1 rounded text-black" value={item.translated} onChange={e => updateItem(item.id, 'translated', Number(e.target.value))} />
+                  <label className="text-sm">✅ Затверджено:</label>
+                  <input type="number" min="0" max="100" className="approved-input form__label p-1 rounded text-black" value={item.approved} onChange={e => updateItem(item.id, 'approved', Number(e.target.value))} />
+                </div>
+              ))}
+            </div>
           </div>
           <div className="flex-1 flex flex-col gap-4">
             <form className="SiteSettings bg-[#26292f] p-4 rounded text-white flex flex-col gap-2">
@@ -125,7 +159,7 @@ export default function App() {
             </form>
           </div>
         </div>
-        <div className="UI w-full max-w-5xl mt-6">
+        <div id="uiContainer" className="UI w-full max-w-5xl mt-6">
           <div className="images flex flex-wrap justify-center gap-4" style={{ gap: `${settings.imageGap}px` }}>
             {items.map(item => (
               <div key={item.id} className="itemcontainer p-2" style={{ width: settings.cardSize + 'px' }}>
@@ -151,10 +185,15 @@ export default function App() {
             ))}
           </div>
         </div>
-        <div className="capture text-center mt-6">
+        <div className="capture text-center mt-6 space-x-2">
           <button onClick={copyText} className="bg-[#7e292a] text-white rounded px-4 py-2">Скопіювати записи</button>
+          <button onClick={captureScreenshot} className="bg-[#7e292a] text-white rounded px-4 py-2">Зробити знімок</button>
         </div>
-        <div id="perctext"></div>
+        <div id="perctext" className="text-white mt-4">
+          {items.map(it => (
+            <div key={it.id}>{`${it.title}: ${it.translated}%✏️ ${it.approved}%✅`}</div>
+          ))}
+        </div>
         <canvas id="output" style={{ display: 'none' }}></canvas>
       </div>
       <div className="footer">
