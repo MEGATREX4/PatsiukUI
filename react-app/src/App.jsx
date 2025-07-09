@@ -1,4 +1,5 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
+import { toPng } from 'html-to-image';
 import './index.css';
 import '../header.css';
 import '../footer.css';
@@ -25,6 +26,7 @@ export default function App() {
     backgroundImage: 'https://i.imgur.com/ukZ8NJu.png',
     backgroundColor: '#16181c'
   }));
+  const uiRef = useRef(null);
 
   useEffect(() => {
     localStorage.setItem('items', JSON.stringify(items));
@@ -62,6 +64,20 @@ export default function App() {
   const copyText = () => {
     const text = items.map(it => `${it.title}: ${it.translated}%✏️ ${it.approved}%✅`).join('\n');
     navigator.clipboard.writeText(text);
+  };
+
+  const captureScreenshot = () => {
+    if (!uiRef.current) return;
+    toPng(uiRef.current)
+      .then((dataUrl) => {
+        const link = document.createElement('a');
+        link.download = 'screenshot.png';
+        link.href = dataUrl;
+        link.click();
+      })
+      .catch((err) => {
+        console.error('Screenshot error', err);
+      });
   };
 
   const handleSettingChange = (e) => {
@@ -103,7 +119,24 @@ export default function App() {
               <input name="approved" type="number" min="0" max="100" defaultValue="0" className="p-1 rounded text-black" />
               <button type="submit" className="bg-[#7e292a] rounded p-2 mt-2">Додати</button>
             </form>
-            <div className="removeobj"></div>
+            <div className="removeobj flex flex-col gap-2 mt-4">
+              {items.map(item => (
+                <div key={item.id} className="bg-[#26292f] p-2 rounded text-white flex flex-col gap-1">
+                  <div className="flex justify-between items-center">
+                    <div className="flex items-center gap-2">
+                      <div className="w-8 h-8 bg-cover rounded" style={{ backgroundImage: `url(${item.image})` }}></div>
+                      <div>{item.id}</div>
+                    </div>
+                    <button type="button" onClick={() => removeItem(item.id)} className="bg-[#7e292a] px-2 rounded">X</button>
+                  </div>
+                  <input value={item.title} onChange={e => updateItem(item.id, 'title', e.target.value)} className="p-1 rounded text-black" />
+                  <div className="flex gap-2">
+                    <input type="number" min="0" max="100" value={item.translated} onChange={e => updateItem(item.id, 'translated', Number(e.target.value))} className="p-1 rounded text-black w-full" />
+                    <input type="number" min="0" max="100" value={item.approved} onChange={e => updateItem(item.id, 'approved', Number(e.target.value))} className="p-1 rounded text-black w-full" />
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
           <div className="flex-1 flex flex-col gap-4">
             <form className="SiteSettings bg-[#26292f] p-4 rounded text-white flex flex-col gap-2">
@@ -125,7 +158,7 @@ export default function App() {
             </form>
           </div>
         </div>
-        <div className="UI w-full max-w-5xl mt-6">
+        <div className="UI w-full max-w-5xl mt-6" ref={uiRef}>
           <div className="images flex flex-wrap justify-center gap-4" style={{ gap: `${settings.imageGap}px` }}>
             {items.map(item => (
               <div key={item.id} className="itemcontainer p-2" style={{ width: settings.cardSize + 'px' }}>
@@ -151,10 +184,15 @@ export default function App() {
             ))}
           </div>
         </div>
-        <div className="capture text-center mt-6">
+        <div className="capture text-center mt-6 flex gap-2">
           <button onClick={copyText} className="bg-[#7e292a] text-white rounded px-4 py-2">Скопіювати записи</button>
+          <button onClick={captureScreenshot} className="bg-[#7e292a] text-white rounded px-4 py-2">Зробити знімок</button>
         </div>
-        <div id="perctext"></div>
+        <div id="perctext" className="mt-4 text-white">
+          {items.map(it => (
+            <div key={it.id}>{it.title}: {it.translated}%✏️ {it.approved}%✅</div>
+          ))}
+        </div>
         <canvas id="output" style={{ display: 'none' }}></canvas>
       </div>
       <div className="footer">
